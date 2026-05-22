@@ -42,6 +42,14 @@ The Graph class stores adjacency list and implements BFS and DFS traversal metho
 
 The Experiment class runs graph traversal experiments and measures execution time.
 
+### WeightedEdge Class
+
+The WeightedEdge class stores destination vertex and edge weight for weighted graphs.
+
+### WeightedGraph Class
+
+The WeightedGraph class implements weighted graph representation and Dijkstra's shortest path algorithm.
+
 ---
 
 ## Breadth-First Search (BFS)
@@ -134,6 +142,84 @@ DFS may cause stack overflow for very deep graphs.
 
 ---
 
+## Bonus Task - Dijkstra Algorithm
+
+The bonus task implements Dijkstra’s Algorithm for finding the shortest path from a starting vertex to all other vertices in a weighted graph.
+
+This implementation extends the original graph structure by supporting weighted edges and shortest path calculations.
+
+### Requirements Implementation
+
+The following requirements were implemented:
+
+- Extended graph structure to support weighted edges
+- Added weight field for graph edges
+- Implemented weighted adjacency list representation
+- Implemented `dijkstra(int start)` method
+
+### Weighted Graph Representation
+
+The weighted graph is represented using adjacency list with edge weights.
+
+Example:
+
+0 -> [(1, weight=4), (2, weight=1)]
+
+This means:
+- vertex 0 is connected to vertex 1 with weight 4
+- vertex 0 is connected to vertex 2 with weight 1
+
+### Dijkstra Algorithm Functionality
+
+The algorithm:
+1. Takes a starting vertex
+2. Computes shortest distances to all vertices
+3. Updates distances when a shorter path is found
+4. Outputs the final shortest distances
+
+The implementation uses:
+- distance array
+- visited array
+- simple loops
+
+Priority queue was not used in this implementation.
+
+### Shortest Path Example
+
+For example:
+
+0 -> 1 = 4  
+0 -> 2 = 1  
+2 -> 1 = 2
+
+The shortest path from vertex 0 to vertex 1 is:
+
+0 -> 2 -> 1
+
+Total cost:
+
+1 + 2 = 3
+
+This path is shorter than the direct edge with cost 4.
+
+### Time Complexity
+
+The time complexity of this implementation is:
+
+O(V²)
+
+because arrays and simple loops are used instead of a priority queue.
+
+### Learning Outcome
+
+This bonus task helped to better understand:
+- weighted graphs
+- shortest path problems
+- graph optimization algorithms
+- Dijkstra’s Algorithm implementation
+
+---
+
 ## Screenshots
 
 ### Graph Structure
@@ -156,6 +242,14 @@ DFS may cause stack overflow for very deep graphs.
 
 ![Large Graph](docs/screenshots/large-graph.png)
 
+### Weighted Graph
+
+![Weighted Graph](docs/screenshots/weighted-graph.png)
+
+### Dijkstra Output
+
+![Dijkstra](docs/screenshots/dijkstra-output.png)
+
 ---
 
 ## Reflection
@@ -163,5 +257,7 @@ DFS may cause stack overflow for very deep graphs.
 In this assignment I learned how graph traversal algorithms work using adjacency list representation.
 
 I understood the main difference between BFS and DFS. BFS uses Queue and explores graph level by level, while DFS uses recursion and explores deeply before backtracking.
+
+I also learned how weighted graphs work and how Dijkstra’s Algorithm finds shortest paths between vertices.
 
 The most challenging part was understanding graph traversal logic and implementing adjacency list correctly.
